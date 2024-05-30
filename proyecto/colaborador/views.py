@@ -1,0 +1,53 @@
+from typing import Any
+
+from django.db.models import Q
+from django.db.models.query import QuerySet
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import (
+    CreateView,
+    DeleteView,
+    DetailView,
+    ListView,
+    UpdateView,
+)
+
+from colaborador.forms import ColaboradorForm
+from colaborador.models import Colaborador
+
+
+class ColaboradorList(ListView):
+    model = Colaborador
+    template_name = "colaborador/colaborador_list.html"
+
+    def get_queryset(self) -> QuerySet[Any]:
+        queryset = super().get_queryset()
+        busqueda = self.request.GET.get("busqueda")
+        if busqueda:
+            queryset = Colaborador.objects.filter(Q(nombre__icontains=busqueda))
+        return queryset
+
+
+class colaboradorCreate(CreateView):
+    model = Colaborador
+    form_class = ColaboradorForm
+    success_url = reverse_lazy("colaborador:colaborador_list")
+    template_name = "colaborador/colaborador_form.html"
+
+
+class colaboradorDetail(DetailView):
+    model = Colaborador
+    template_name = "colaborador/colaborador_detail.html"
+
+
+class colaboradorUpdate(UpdateView):
+    model = Colaborador
+    form_class = ColaboradorForm
+    success_url = reverse_lazy("colaborador:colaborador_list")
+    template_name = "colaborador/colaborador_form.html"
+
+
+class colaboradorDelete(DeleteView):
+    model = Colaborador
+    success_url = reverse_lazy("colaborador:colaborador_list")
+    template_name = "colaborador/colaborador_confirm_delete.html"
