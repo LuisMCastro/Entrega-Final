@@ -2,7 +2,6 @@ from typing import Any
 
 from django.db.models import Q
 from django.db.models.query import QuerySet
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import (
     CreateView,
@@ -28,26 +27,26 @@ class ColaboradorList(ListView):
         return queryset
 
 
-class colaboradorCreate(CreateView):
+class ColaboradorCreate(CreateView):
     model = Colaborador
     form_class = ColaboradorForm
     success_url = reverse_lazy("colaborador:colaborador_list")
     template_name = "colaborador/colaborador_form.html"
 
 
-class colaboradorDetail(DetailView):
+class ColaboradorDetail(DetailView):
     model = Colaborador
     template_name = "colaborador/colaborador_detail.html"
 
 
-class colaboradorUpdate(UpdateView):
+class ColaboradorUpdate(UpdateView):
     model = Colaborador
     form_class = ColaboradorForm
     success_url = reverse_lazy("colaborador:colaborador_list")
     template_name = "colaborador/colaborador_form.html"
 
 
-class colaboradorDelete(DeleteView):
+class ColaboradorDelete(DeleteView):
     model = Colaborador
     success_url = reverse_lazy("colaborador:colaborador_list")
     template_name = "colaborador/colaborador_confirm_delete.html"
