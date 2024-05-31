@@ -6,9 +6,9 @@ from django.utils import timezone
 
 class Colaborador(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE, related_name="Colaborador")
-    edad = models.PositiveIntegerField(max_length=2)
+    edad = models.PositiveIntegerField()
     GENEROS = [("M", "Mujer"), ("H", "Hombre"), ("NB", "No Binario")]
-    genero = models.CharField(choices=GENEROS, default="Hombre")
+    genero = models.CharField(max_length=100, choices=GENEROS, default="Hombre")
     foto_perfil = models.ImageField(upload_to="fotos_perfil", null=True, blank=True)
     biografia = models.TextField(blank=False, null=False)
     fecha_registro = models.DateTimeField(editable=False, default=timezone.now)
@@ -29,7 +29,7 @@ class Imagen(models.Model):
     fecha_subida = models.DateTimeField(editable=False, default=timezone.now)
 
     class Meta:
-        ordering = "fecha_subida"
+        ordering = ("fecha_subida",)
 
     def __str__(self):
         return f"{self.titulo}, by {self.colaborador}"
