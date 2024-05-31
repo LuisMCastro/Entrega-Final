@@ -1,6 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
 from . import models
 
 admin.site.site_title = "Colaboradores e Imagenes"
@@ -15,7 +14,7 @@ class ImagenAdmin(admin.ModelAdmin):
         "descripcion",
         "fecha_subida",
     )
-    list_display_links = ("colaborador",)
+    list_display_links = ("titulo",)
     list_filter = ("colaborador",)
     date_hierarchy = "fecha_subida"
 
