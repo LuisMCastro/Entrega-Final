@@ -11,24 +11,42 @@ Proyecto: Animalix
 WEB Django con patron MVT
 
 Incluye:
-        1.💫 Readme con la explicación del proyecto
-        2.💫 Video de no más de 10 minutos
+
+        💫 Readme con la explicación del proyecto.
+
+        💫 Video de no más de 10 minutos.
+
     🕵️ Estructura interna:
-        1.💫 una o más aplicaciones creadas
-        2.💫 dos modelos con campos de texto, número, fecha
-        3.💫 vista de listado de registros de un modelo
-        4.💫 vista del detalle de un registro de un modelo
-        💫 vista para crear un registro de un modelo
-        💫 vista para eliminar un registro de un modelo
-        💫 about/ que hable sobre el creador del proyecto
+
+        💫 una o más aplicaciones creadas.
+
+        💫 dos modelos con campos de texto, número, fecha.
+
+        💫 vista de listado de registros de un modelo.
+
+        💫 vista del detalle de un registro de un modelo.
+
+        💫 vista para crear un registro de un modelo.
+
+        💫 vista para eliminar un registro de un modelo.
+
+        💫 about/ que hable sobre el creador del proyecto.
+
     🕵️ Lógica de usuarios:
-        💫 login de usuario
-        💫 registro de usuario
-        💫 administrador: puede realizar CRUD sobre los modelos
-        💫 administrador: subir una imagen de perfil para un usuario
-    🕵️ Flujo del proyecto
-        💫 Ingresar a la web app desde la ruta base ‘/’ y direccionar a “home”
-        💫 navegar entre las diferentes URL sin tener que usar la “barra del navegador”
+
+        💫 login de usuario.
+
+        💫 registro de usuario.
+
+        💫 administrador: puede realizar CRUD sobre los modelos.
+
+        💫 administrador: subir una imagen de perfil para un usuario.
+
+    🕵️ Flujo del proyecto:
+
+        💫 Ingresar a la web app desde la ruta base ‘/’ y direccionar a “home”.
+
+        💫 navegar entre las diferentes URL sin tener que usar la “barra del navegador”.
 
 ## Explicacion breve tecnica: urls, modelos, plantillas
 
