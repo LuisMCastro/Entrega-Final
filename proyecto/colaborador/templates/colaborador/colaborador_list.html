@@ -1,37 +1,43 @@
 {% extends 'home/base.html' %}
 {% block title %}
-    Colaboradores : Listado de Colaboradores
+    Colaboradores: Listado de Colaboradores
 {% endblock title %}
 {% block body_title %}
-    Nuestros Colaboradores
+    <h1 class="display-4 text-center mb-4">Nuestros Colaboradores</h1>
 {% endblock body_title %}
 {% block body_subtitle %}
-    Las personas que ayudan a que esta comunidad siga creciendo!
+    <h2 class="text-center">Las personas que ayudan a que esta comunidad siga creciendo!</h2>
 {% endblock body_subtitle %}
 {% block content %}
-    <ul>
-        {% for object in object_list %}
-            <li class="text-center">
-                <p>{{ object.usuario }}</p>
-                <a href="{% url 'colaborador:colaborador_detail' object.id %}">
-                    <img src="{{ object.foto_perfil.url }}"
-                         alt="Foto Perfil"
-                         width="200px"
-                         height="200px">
-                </a>
-                <a href="{% url 'colaborador:colaborador_delete' object.id %} ">
-                    <p>Eliminar colaborador</p>
-                </a>
-                <a href="{% url 'colaborador:colaborador_update' object.id %}">
-                    <p>Modificar colaborador</p>
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'colaborador:colaborador_create' %}">
-        <p>- Crear nuevo colaborador</p>
-    </a>
-    <a href="{% url 'home:index' %}">
-        <p>- Volver a Inicio</p>
-    </a>
+    <div class="container">
+        <div class="row">
+            {% for object in object_list %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{{ object.foto_perfil.url }}"
+                             class="card-img-top"
+                             alt="Foto Perfil"
+                             style="height: 200px;
+                                    object-fit: cover">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ object.usuario }}</h5>
+                            <a href="{% url 'colaborador:colaborador_detail' object.id %}"
+                               class="btn btn-primary mt-2">Ver detalles</a>
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'colaborador:colaborador_delete' object.id %}"
+                                   class="btn btn-danger mt-2">Eliminar colaborador</a>
+                                <a href="{% url 'colaborador:colaborador_update' object.id %}"
+                                   class="btn btn-secondary mt-2">Modificar colaborador</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'colaborador:colaborador_create' %}"
+               class="btn btn-success">Crear nuevo colaborador</a>
+            <a href="{% url 'home:index' %}" class="btn btn-secondary ml-3">Volver a Inicio</a>
+        </div>
+    </div>
 {% endblock content %}

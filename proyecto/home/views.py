@@ -10,6 +10,11 @@ def home_index(request):
     # return reverse_lazy("home:index")
 
 
+def about(request):
+    return render(request, "home/about.html")
+    # return reverse_lazy("home:index")
+
+
 class CustomLoginView(LoginView):
     authentication_form = CustomAuthentificationForm
     template_name = "home/login.html"

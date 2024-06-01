@@ -19,9 +19,7 @@
                        href="{% url 'home:index' %}">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"
-                       href="https://github.com/LuisMCastro/3raPre-Entrega.git"
-                       target="_blank">About</a>
+                    <a class="nav-link" href="{% url 'colaborador:imagen_list' %}">Galeria</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle"
@@ -29,35 +27,31 @@
                        href="{% url 'colaborador:colaborador_list' %}"
                        role="button"
                        data-bs-toggle="dropdown"
-                       aria-expanded="false">Secciones</a>
+                       aria-expanded="false">Colaboradores</a>
                     <ul class="dropdown-menu dropdown-menu-end"
                         aria-labelledby="navbarDropdown">
                         <li>
-                            <a class="dropdown-item" href="{% url 'colaborador:colaborador_list' %}">Lista de secciones</a>
+                            <a class="dropdown-item" href="{% url 'colaborador:colaborador_list' %}">Nuestros Colaboradores</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{% url 'home:login' %}">Login</a>
-                        </li>
-                        <li>
-                            <li>
-                                <a class="dropdown-item" href="{% url 'home:logout' %}">logout</a>
-                            </li>
-                            <li>
-                                <li>
-                                    <a class="dropdown-item" href="{% url 'home:register' %}">register</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">Buscar seccion</a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider" />
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{% url 'colaborador:imagen_list' %}">Lista de Ingenieros</a>
-                                </li>
-                            </ul>
+                            <a class="dropdown-item"
+                               href="{% url 'colaborador:colaborador_create' %}">Ser un colaborador</a>
                         </li>
                     </ul>
-                </div>
-            </div>
-        </nav>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home:about' %}">About</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home:logout' %}">Logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home:login' %}">Login</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

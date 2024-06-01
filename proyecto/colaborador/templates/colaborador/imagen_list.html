@@ -1,28 +1,37 @@
 {% extends 'home/base.html' %}
 {% block title %}
-    Colaboradores : Galeria
+    Colaboradores: Galería
 {% endblock title %}
 {% block body_title %}
-    Galeria de Imagenes
+    <h1 class="display-4 text-center mb-4">Galería de Imágenes</h1>
 {% endblock body_title %}
 {% block body_subtitle %}
-    Todo el material es libre de uso
+    <h2 class="text-center">Todo el material es libre de uso</h2>
 {% endblock body_subtitle %}
-.
 {% block content %}
-    <ul>
-        {% for object in object_list %}
-            <li class="text-center">
-                <h4>{{ object.titulo }}</h4>
-                <img src="{{ object.imagen.url }}" alt="Foto Perfil" width="" height="">
-                <p>
-                    Posted by<a href="{% url 'colaborador:colaborador_detail' object.colaborador.id %}">{{ object.colaborador }}</a>{{ object.fecha_subida }}
-                </p>
-                <p>Descripcion: {{ object.Descripcion }}</p>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'home:index' %}">
-        <p>- Volver a Inicio</p>
-    </a>
+    <div class="container">
+        <div class="row">
+            {% for object in object_list %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{{ object.imagen.url }}"
+                             class="card-img-top"
+                             alt="{{ object.titulo }}"
+                             style="height: 200px;
+                                    object-fit: cover">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ object.titulo }}</h5>
+                            <p>
+                                Posted by <a href="{% url 'colaborador:colaborador_detail' object.colaborador.id %}">{{ object.colaborador }}</a> {{ object.fecha_subida }}
+                            </p>
+                            <p>Descripción: {{ object.descripcion }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'home:index' %}" class="btn btn-secondary">Volver a Inicio</a>
+        </div>
+    </div>
 {% endblock content %}

@@ -59,7 +59,7 @@ class ColaboradorDelete(DeleteView):
 
 class ImagenList(ListView):
     model = Imagen
-    template_name = "imagen/imagen_list.html"
+    template_name = "colaborador/imagen_list.html"
 
     def get_queryset(self) -> QuerySet[Any]:
         queryset = super().get_queryset()
@@ -72,23 +72,23 @@ class ImagenList(ListView):
 class ImagenCreate(CreateView):
     model = Imagen
     form_class = ImagenForm
-    success_url = reverse_lazy("imagen:imagen_list")
-    template_name = "imagen/imagen_form.html"
+    success_url = reverse_lazy("colaborador:imagen_list")
+    template_name = "colaborador/imagen_form.html"
 
 
 class ImagenDetail(DetailView):
     model = Imagen
-    template_name = "imagen/imagen_detail.html"
+    template_name = "colaborador/imagen_detail.html"
 
 
 class ImagenUpdate(UpdateView):
     model = Imagen
     form_class = ImagenForm
-    success_url = reverse_lazy("imagen:imagen_list")
-    template_name = "imagen/imagen_form.html"
+    success_url = reverse_lazy("colaborador:imagen_list")
+    template_name = "colaborador/imagen_form.html"
 
 
 class ImagenDelete(DeleteView):
     model = Imagen
-    success_url = reverse_lazy("imagen:imagen_list")
-    template_name = "imagen/imagen_delete.html"
+    success_url = reverse_lazy("colaborador:imagen_list")
+    template_name = "colaborador/imagen_delete.html"

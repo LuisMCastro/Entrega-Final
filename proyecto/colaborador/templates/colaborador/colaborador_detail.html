@@ -1,32 +1,38 @@
 {% extends 'home/base.html' %}
 {% block title %}
-    Colaboradores : {{ object.usuario }}
+    Colaboradores: {{ object.usuario }}
 {% endblock title %}
 {% block body_title %}
-    Sobre {{ object.usuario }}
+    <h1 class="display-4 text-center mb-4">Sobre {{ object.usuario }}</h1>
 {% endblock body_title %}
 {% block content %}
-    <ul>
-        <li>
-            <img src="{{ object.foto_perfil.url }}"
-                 alt="Foto Perfil"
-                 width="200px"
-                 height="200px">
-        </li>
-        <li>
-            <h4>Edad: {{ object.edad }} años</h4>
-        </li>
-        <li>
-            <h4>Sexo: {{ object.genero }}</h4>
-        </li>
-        <li>
-            <h4>Biografia: {{ object.biografia }}</h4>
-        </li>
-    </ul>
-    <a href="{% url 'colaborador:colaborador_list' %}">
-        <p>- Volver</p>
-    </a>
-    <a href="{% url 'home:index' %}">
-        <p>- Ir a Inicio</p>
-    </a>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <ul class="list-group">
+                    <li class="list-group-item text-center">
+                        <img src="{{ object.foto_perfil.url }}"
+                             alt="Foto Perfil"
+                             style="width: 200px;
+                                    height: 200px">
+                    </li>
+                    <li class="list-group-item">
+                        <h4>Edad: {{ object.edad }} años</h4>
+                    </li>
+                    <li class="list-group-item">
+                        <h4>Sexo: {{ object.genero }}</h4>
+                    </li>
+                    <li class="list-group-item">
+                        <h4>Biografía:</h4>
+                        <p>{{ object.biografia }}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'colaborador:colaborador_list' %}"
+               class="btn btn-secondary">Volver</a>
+            <a href="{% url 'home:index' %}" class="btn btn-primary ml-3">Ir a Inicio</a>
+        </div>
+    </div>
 {% endblock content %}
