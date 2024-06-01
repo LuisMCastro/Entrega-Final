@@ -1,0 +1,32 @@
+{% extends 'home/base.html' %}
+{% block title %}
+    Colaboradores : {{ object.usuario }}
+{% endblock title %}
+{% block body_title %}
+    Sobre {{ object.usuario }}
+{% endblock body_title %}
+{% block content %}
+    <ul>
+        <li>
+            <img src="{{ object.foto_perfil.url }}"
+                 alt="Foto Perfil"
+                 width="200px"
+                 height="200px">
+        </li>
+        <li>
+            <h4>Edad: {{ object.edad }} años</h4>
+        </li>
+        <li>
+            <h4>Sexo: {{ object.genero }}</h4>
+        </li>
+        <li>
+            <h4>Biografia: {{ object.biografia }}</h4>
+        </li>
+    </ul>
+    <a href="{% url 'colaborador:colaborador_list' %}">
+        <p>- Volver</p>
+    </a>
+    <a href="{% url 'home:index' %}">
+        <p>- Ir a Inicio</p>
+    </a>
+{% endblock content %}

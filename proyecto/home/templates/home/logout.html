@@ -1,0 +1,11 @@
+{% extends 'home/base.html' %}
+{% block title %}
+    Animalix | Logout
+{% endblock title %}
+{% block body_title %}
+    Logout
+{% endblock body_title %}
+{% block content %}
+    <p class="fs-5 ">Has cerrado Sesion</p>
+    <a href="{% url 'home:index' %}" class="btn btn-secondary ">Volver a inicio</a>
+{% endblock content %}

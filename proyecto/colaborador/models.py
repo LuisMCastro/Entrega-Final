@@ -7,7 +7,7 @@ from django.utils import timezone
 class Colaborador(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE, related_name="Colaborador", unique=True)
     edad = models.PositiveIntegerField()
-    GENEROS = [("M", "Mujer"), ("H", "Hombre"), ("NB", "No Binario")]
+    GENEROS = [("Mujer", "M"), ("Hombre", "H"), ("NoBinario", "NB")]
     genero = models.CharField(max_length=100, choices=GENEROS, default="Hombre")
     foto_perfil = models.ImageField(upload_to="fotos_perfil", null=True, blank=True)
     biografia = models.TextField(blank=False, null=False)

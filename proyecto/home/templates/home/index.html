@@ -1,2 +1,26 @@
 {% extends 'home/base.html' %}
 {% load static %}
+{% block title %}
+    Animalix | Inicio
+{% endblock title %}
+{% block body_title %}
+    <h1 class="display-4 text-center mb-4">Bienvenido a Animalix!</h1>
+{% endblock body_title %}
+{% block body_subtitle %}
+    <h2 class="text-center">
+        Animalix es un foro en donde podrás compartir tus imágenes de animales salvajes con todo el mundo!
+    </h2>
+{% endblock body_subtitle %}
+{% block content %}
+    <div class="container">
+        <ul class="list-group list-group-flush mt-4">
+            <li class="list-group-item">
+                <a href="{% url 'colaborador:imagen_list' %}" class="btn btn-primary">Galería de Imágenes</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'colaborador:colaborador_list' %}"
+                   class="btn btn-secondary">Sobre nuestros Colaboradores</a>
+            </li>
+        </ul>
+    </div>
+{% endblock content %}

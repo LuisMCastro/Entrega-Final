@@ -23,7 +23,7 @@ urlpatterns = [
     path("colaborador/delete/<int:pk>", ColaboradorDelete.as_view(), name="colaborador_delete"),
 ]
 
-urlpatterns = [
+urlpatterns += [
     path("imagen/list", ImagenList.as_view(), name="imagen_list"),
     path("imagen/create", ImagenCreate.as_view(), name="imagen_create"),
     path("imagen/detail/<int:pk>", ImagenDetail.as_view(), name="imagen_detail"),

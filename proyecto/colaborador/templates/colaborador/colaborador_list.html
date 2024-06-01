@@ -1,0 +1,37 @@
+{% extends 'home/base.html' %}
+{% block title %}
+    Colaboradores : Listado de Colaboradores
+{% endblock title %}
+{% block body_title %}
+    Nuestros Colaboradores
+{% endblock body_title %}
+{% block body_subtitle %}
+    Las personas que ayudan a que esta comunidad siga creciendo!
+{% endblock body_subtitle %}
+{% block content %}
+    <ul>
+        {% for object in object_list %}
+            <li class="text-center">
+                <p>{{ object.usuario }}</p>
+                <a href="{% url 'colaborador:colaborador_detail' object.id %}">
+                    <img src="{{ object.foto_perfil.url }}"
+                         alt="Foto Perfil"
+                         width="200px"
+                         height="200px">
+                </a>
+                <a href="{% url 'colaborador:colaborador_delete' object.id %} ">
+                    <p>Eliminar colaborador</p>
+                </a>
+                <a href="{% url 'colaborador:colaborador_update' object.id %}">
+                    <p>Modificar colaborador</p>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'colaborador:colaborador_create' %}">
+        <p>- Crear nuevo colaborador</p>
+    </a>
+    <a href="{% url 'home:index' %}">
+        <p>- Volver a Inicio</p>
+    </a>
+{% endblock content %}

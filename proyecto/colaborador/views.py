@@ -51,7 +51,7 @@ class ColaboradorUpdate(UpdateView):
 class ColaboradorDelete(DeleteView):
     model = Colaborador
     success_url = reverse_lazy("colaborador:colaborador_list")
-    template_name = "colaborador/colaborador_confirm_delete.html"
+    template_name = "colaborador/colaborador_delete.html"
 
 
 ####### IMAGEN #######
@@ -91,4 +91,4 @@ class ImagenUpdate(UpdateView):
 class ImagenDelete(DeleteView):
     model = Imagen
     success_url = reverse_lazy("imagen:imagen_list")
-    template_name = "imagen/imagen_confirm_delete.html"
+    template_name = "imagen/imagen_delete.html"

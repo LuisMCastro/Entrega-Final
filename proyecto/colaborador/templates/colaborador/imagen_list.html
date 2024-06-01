@@ -1,0 +1,28 @@
+{% extends 'home/base.html' %}
+{% block title %}
+    Colaboradores : Galeria
+{% endblock title %}
+{% block body_title %}
+    Galeria de Imagenes
+{% endblock body_title %}
+{% block body_subtitle %}
+    Todo el material es libre de uso
+{% endblock body_subtitle %}
+.
+{% block content %}
+    <ul>
+        {% for object in object_list %}
+            <li class="text-center">
+                <h4>{{ object.titulo }}</h4>
+                <img src="{{ object.imagen.url }}" alt="Foto Perfil" width="" height="">
+                <p>
+                    Posted by<a href="{% url 'colaborador:colaborador_detail' object.colaborador.id %}">{{ object.colaborador }}</a>{{ object.fecha_subida }}
+                </p>
+                <p>Descripcion: {{ object.Descripcion }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home:index' %}">
+        <p>- Volver a Inicio</p>
+    </a>
+{% endblock content %}

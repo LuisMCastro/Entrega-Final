@@ -1,0 +1,18 @@
+{% extends 'home/base.html' %}
+{% block title %}
+    Animalix | Registro Colaborador
+{% endblock title %}
+{% block body_title %}
+    Registro de Nuevo Colaborador
+{% endblock body_title %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+            <input type="hidden" name="next" value="{% url 'home:login' %}">
+        </table>
+        <button type="submit" class="btn btn-primary ">Registrarse</button>
+        <a href="{% url 'home:index' %}" class="btn btn-secondary ">Volver a inicio</a>
+    </form>
+{% endblock content %}

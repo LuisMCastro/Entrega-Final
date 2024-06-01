@@ -1,0 +1,18 @@
+{% extends 'home/base.html' %}
+{% block title %}
+    Colaboradores : Eliminar usuario Colaborador
+{% endblock title %}
+{% block body_title %}
+    Colaboradores
+{% endblock body_title %}
+{% block body_subtitle %}
+    Eliminar Usuario Colaborador
+{% endblock body_subtitle %}
+{% block content %}
+    <p class="fs-5  fst-italic ">¿Confirma eliminar a "{{ object.usuario }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+    </form>
+    <a href="{% url 'colaborador:colaborador_list' %}">Volver a Colaboradores</a>
+{% endblock content %}
